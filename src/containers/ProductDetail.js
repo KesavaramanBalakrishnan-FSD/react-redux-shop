@@ -31,7 +31,7 @@ const ProductDetail = () => {
     return () => {
       dispatch(removeSelectedProduct());
     };
-  }, [productId]);
+  }, [productId, dispatch, fetchProduct]);
   return (
     <div className="productDetail ui grid container">
       {Object.keys(product).length === 0 ? (
@@ -42,7 +42,11 @@ const ProductDetail = () => {
             <div className="ui vertical divider">AND</div>
             <div className="middle aligned row">
               <div className="column lp">
-                <img className="ui fluid image" src={image} />
+                <img
+                  className="ui fluid image"
+                  src={image}
+                  alt={title || "Product Image"}
+                />
               </div>
               <div className="column rp">
                 <h1>{title}</h1>
